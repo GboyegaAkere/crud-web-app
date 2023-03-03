@@ -1,28 +1,25 @@
 import React from "react";
 import AddList from "./AddList";
 
-const data =[
+
+const  listData =[
     {
         id:1,
-        name:'mackbook',
-        price:'$300'
-
+        name:"lenovo",
+        price:'#300'
     },
 
     {
         id:2,
-        name:'hp',
-        price:'$30'
-
-    }
-
+        name:"hp",
+        price:'#30'
+    },
 ]
 function Crud(){
-    const [list, setList] = React.useState(data)
-
+    const [list, setList] = React.useState(listData)
     return(
         <div>
-            <h1>this is my crud area</h1>
+            <h1>this is my crud app</h1>
             <AddList setList={setList}/>
             <table>
                 {list.map((current)=>{
@@ -40,4 +37,5 @@ function Crud(){
         </div>
     )
 }
+
 export default Crud
