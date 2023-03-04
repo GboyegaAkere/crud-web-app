@@ -1,5 +1,6 @@
 import React from "react";
 import AddList from "./AddList";
+import EditList from "./EditList";
 
 
 const  listData =[
@@ -17,10 +18,18 @@ const  listData =[
 ]
 function Crud(){
     const [list, setList] = React.useState(listData)
+    const [update, setUpdate]= React.useState(-1)
+
+    function handleSubmit(id){
+        setUpdate(id)
+    }
+
     return(
         <div>
             <h1>this is my crud app</h1>
             <AddList setList={setList}/>
+            <EditList/>
+            
             <table>
                 {list.map((current)=>{
                     const {name, price} = current
@@ -28,7 +37,7 @@ function Crud(){
                         <tr>
                             <td>{name}</td>
                             <td>{price}</td>
-                            <button>edit</button>
+                            <button onClick={()=>handleSubmit(current.id)}>edit</button>
                             <button>delete</button>
                         </tr>
                     )
